@@ -9,7 +9,7 @@ import { SESSION_ID, UPDATE_CUSTOMER } from "../api/restapi";
 const Customer = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("customer location is ", location.state);
+  // console.log("customer location is ", location.state);
 
   const [custId, setCustId] = useState(location.state.id);
   const [custname, setCustName] = useState(location.state.name);
@@ -68,7 +68,7 @@ const Customer = () => {
           },
         }
       );
-      console.log("update customer Response:", response.data);
+      // console.log("update customer Response:", response.data);
 
       // Show success
       toast.success("Data Update successful!", {});

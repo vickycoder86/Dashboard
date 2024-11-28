@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import SideBar from "./Sidebar";
+import SideBar from "../Sidebar";
 import "flowbite";
-import logo from "../../src/images/logo-with-text.png";
-import logo1 from "../images/vidhata.jpeg";
+// import logo from "../../src/images/logo-with-text.png";
+
 
 import { AgGridReact } from "ag-grid-react"; // React Data Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid

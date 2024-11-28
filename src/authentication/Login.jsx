@@ -44,7 +44,7 @@ const Login = () => {
   
     try {
       const response = await axios.post(LOGIN, { email: emailValue, password: passwordValue });
-      console.log("Login Response:", response.data);
+      // console.log("Login Response:", response.data);
   
       localStorage.setItem(
         "user_name",`${response.data.fname} ${response.data.lname}`);
@@ -66,7 +66,7 @@ const Login = () => {
       <div>
         <ToastContainer
         position="top-center"
-        autoClose={1000}
+        autoClose={500}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
