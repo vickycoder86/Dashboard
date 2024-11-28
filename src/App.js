@@ -1,25 +1,55 @@
-import logo from './logo.svg';
+
+import Home from "../src/Components/Home"
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+
+import { ToastContainer } from "react-toastify";
+
+
+import Login from "./authentication/Login";
+import Welcome from "./authentication/Welcome";
+import CustomersList from "./Components/Customers/CustomersList";
+import Customer from "./Components/Customers/Customer";
+import CompanyData from "./Components/Companies/CompanyData";
+import CustomerUsage from "./Components/Customers/CustomerUsage";
+import Customerinfo from "./Components/Customerinfo";
+import CompainesList from "./Components/Customers/CompainesList";
+
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Routes>
+      <Route path="/Login" element={<Login />}/>
+      <Route path="/" element={<Welcome />}/>
+      <Route path='/Home' element={<Home />}/>
+      <Route path="/Customer" element={<Customer />}/>
+      <Route path="/Customerinfo" element={<Customerinfo/>}/>
+      <Route path="/CustomersList" element={<CustomersList />}/>
+      <Route path="/CompainesList" element={<CompainesList />}/>
+      <Route path="/CompanyData" element={<CompanyData />}/>
+      <Route path="/CustomerUsage" element={<CustomerUsage />}/>
+     
+      
+    </Routes>
+    {/* <Customers1 /> */}
+
+   
+
+    </>
+   
+   
+   
+
+
+
+    
+
+    
   );
-}
+} 
 
 export default App;

@@ -1,0 +1,4 @@
+
+my main folder is Customers
+my main file is CustomersList.jsx
+my 2nd main file is Customer.jsx(for each customer cards)
