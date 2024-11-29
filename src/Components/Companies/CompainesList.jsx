@@ -24,7 +24,7 @@ const rowClassRules = {
   green: (row) => row.data.section === "C",
 };
 
-
+let gridApi;
 
 function CompainesList(props) {
 
@@ -276,7 +276,7 @@ function CompainesList(props) {
 
   ]);
 
-  let gridApi;
+//export data to csv in AgGrid
   const onGridReady = (params) => {
     gridApi = params.api;
   };
@@ -285,14 +285,7 @@ function CompainesList(props) {
     gridApi.exportDataAsCsv();
   };
 
-  function openPopup() {
-    setIsOpen(true);
-  }
-
-  function closePopup() {
-    setIsOpen(false);
-  }
-
+  
   return (
     <>
     <SideBar />

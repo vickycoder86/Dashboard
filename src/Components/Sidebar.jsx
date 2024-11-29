@@ -134,10 +134,10 @@ const SideBar = () => {
           id="submenu"
         >
           <h1 className="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">
-            Sales
+            Task
           </h1>
           <h1 className="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">
-            Purchase
+            Message
           </h1>
           <h1 className="cursor-pointer p-2 hover:bg-gray-700 rounded-md mt-1">
             Others
