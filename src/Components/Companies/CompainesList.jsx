@@ -121,6 +121,7 @@ function CompainesList(props) {
     {
       field: "id",
       headerName: "Company ID",
+      headerCheckboxSelection:true,
       filter: true,
       floatingFilter: true,
       checkboxSelection: true,

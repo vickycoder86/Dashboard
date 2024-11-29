@@ -105,6 +105,7 @@ const [isSidebarVisibleCompany, setSidebarVisibleCompany] = useState(false);
     {
       field: "id",
       headerName: "Company ID",
+      headerCheckboxSelection:true,
       filter: true,
       floatingFilter: true,
       checkboxSelection: true,
@@ -259,6 +260,7 @@ const [isSidebarVisibleCompany, setSidebarVisibleCompany] = useState(false);
     {
       field: "email",
       headerName: "Email",
+      headerCheckboxSelection:true,
       filter: true,
       floatingFilter: true,
       checkboxSelection: true,

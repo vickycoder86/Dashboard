@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "../authentication/Login.css";
 import logo from "../../src/images/logo-with-text.png";
 import feat from "../../src/images/graph.webp";
@@ -66,7 +66,7 @@ const Login = () => {
       <div>
         <ToastContainer
         position="top-center"
-        autoClose={800}
+        autoClose={600}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

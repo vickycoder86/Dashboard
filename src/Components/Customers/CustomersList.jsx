@@ -135,6 +135,7 @@ function CustomersList(props) {
     {
       field: "id",
       headerName: "Customer ID",
+      headerCheckboxSelection:true,
       filter: true,
       floatingFilter: true,
       checkboxSelection: true,
@@ -340,6 +341,7 @@ function CustomersList(props) {
           rowClassRules={rowClassRules}
           onGridReady={onGridReady}
           enableBrowserTooltips={true}
+          
         />
       </div>
     </>
