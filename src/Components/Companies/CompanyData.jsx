@@ -51,6 +51,7 @@ const CompanyData = () => {
 
       // Show success
       toast.success("Data Update successful!", {});
+      
     } catch (error) {
       console.error("Data Update Error:", error);
       toast.error("Data not Updated. Please try again.");

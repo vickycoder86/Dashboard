@@ -172,3 +172,5 @@ const SideBar = () => {
 };
 
 export default SideBar;
+
+//bootstrap icons
