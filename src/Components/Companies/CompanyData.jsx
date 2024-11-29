@@ -41,6 +41,14 @@ const CompanyData = () => {
   //created a function to uddate Customer data
   const handleUpdateCompany = async (e) => {
     e.preventDefault();
+
+    const confirmUpdate = window.confirm(
+      "Are you sure you want to update the company data ?"
+    );
+    if (!confirmUpdate) {
+      return;
+    }
+
     try {
       const response = await axios.post(UPDATE_COMPANY, updateCompanydatabody, {
         headers: {
@@ -51,7 +59,9 @@ const CompanyData = () => {
 
       // Show success
       toast.success("Data Update successful!", {});
-      
+      setTimeout(() => {
+        navigate(-1);
+      }, 1200);
     } catch (error) {
       console.error("Data Update Error:", error);
       toast.error("Data not Updated. Please try again.");

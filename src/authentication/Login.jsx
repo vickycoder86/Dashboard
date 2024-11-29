@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../authentication/Login.css";
 import logo from "../../src/images/logo-with-text.png";
 import feat from "../../src/images/graph.webp";
@@ -19,17 +19,18 @@ const Login = () => {
 
   // by this code we can stop user to go to login page if user is already logged
 
-  // useEffect(() => {
-  //   const sessionId = localStorage.getItem("Session_Id");
-  //   if (sessionId) {
-  //     // alert("You are already logged in.");
-  //     navigate(-1); // Redirect to the home or dashboard page
-  //   }
-  //   //set the autofoucs on email textbox when login page is loading
-  //   if (email.current) {
-  //     email.current.focus();
-  //   }
-  // }, [navigate]);
+  useEffect(() => {
+    const sessionId = localStorage.getItem("Session_Id");
+    if (sessionId) {
+      // alert("You are already logged in.");
+      navigate(-1); // Redirect to the home or dashboard page
+    }
+    //set the autofoucs on email textbox when login page is loading
+    if (email.current) {
+      email.current.focus();
+    }
+  }, [navigate]);
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -66,7 +67,7 @@ const Login = () => {
       <div>
         <ToastContainer
         position="top-center"
-        autoClose={600}
+        autoClose={800}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

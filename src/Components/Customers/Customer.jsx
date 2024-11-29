@@ -72,6 +72,9 @@ const Customer = () => {
 
       // Show success
       toast.success("Data Update successful!", {});
+      setTimeout(() => {
+        navigate(-1);
+      }, 800);
     } catch (error) {
       console.error("Data Update Error:", error);
       toast.error("Data not Updated. Please try again.");
@@ -83,7 +86,7 @@ const Customer = () => {
       <SideBar />
       <ToastContainer
         position="top-center"
-        autoClose={1000}
+        autoClose={400}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -93,167 +96,184 @@ const Customer = () => {
         pauseOnHover
         theme="dark"
       />
-      <section className="flex items-center justify-center ml-[240px] py-8 ">
-        <div className=" bg-white border-sky-600">
-          <h1 className="text-center text-[32px] text-sky-600">
-            Customer Data
-          </h1>
-          <p className="text-[18px] text-black ml-6">Customer ID</p>
-          <input
-            value={custId}
-            disabled={true}
-            onChange={(e) => setCustId(e.target.value)}
-            type="text"
-            placeholder="Enter Your content "
-            className="w-[200px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-          />
-          <div className="flex">
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Customer Name
-            </p>
+      <section className="flex flex-col items-center justify-center lg:ml-[240px] px-4 py-8">
+        <div className="bg-white border-sky-600 w-full max-w-6xl p-4">
+          <h1 className="text-center text-2xl md:text-3xl text-sky-600 mb-6">Customer Data</h1>
+  
+          <div className="mb-4">
+            <label className="block text-sm text-black">Customer ID</label>
             <input
-              value={custname}
-              onChange={(e) => setCustName(e.target.value)}
+              value={custId}
+              disabled
+              onChange={(e) => setCustId(e.target.value)}
               type="text"
-              placeholder="Enter Your content "
-              className="w-[300px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-            />
-
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Address
-            </p>
-            <input
-              value={custAddress}
-              onChange={(e) => setCustAddress(e.target.value)}
-              type="text"
-              placeholder="Enter Your content "
-              className="w-[350px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-3 outline-none bg-transparent"
-            />
-
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">City</p>
-            <input
-              value={custCity}
-              onChange={(e) => setCustCity(e.target.value)}
-              type="text"
-              placeholder="Enter Your content "
-              className="w-[90px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-3 outline-none bg-transparent"
+              placeholder="Enter Your content"
+              className="w-full md:w-1/3 border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
             />
           </div>
-          <div className="flex">
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Refer By
-            </p>
-            <input
-              value={custrefBy}
-              onChange={(e) => setCustRefBy(e.target.value)}
-              type="text"
-              placeholder="Enter referal name "
-              className="w-[280px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-            />
-
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">Admin</p>
-            <input
-              value={adminname}
-              onChange={(e) => setAdminname(e.target.value)}
-              type="text"
-              placeholder="Enter Admin name "
-              className="w-[280px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-            />
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Admin Number
-            </p>
-            <input
-              value={adminMobile}
-              onChange={(e) => setAdminMobile(e.target.value)}
-              type="text"
-              placeholder="Mobile Number "
-              className="w-[150px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-3 outline-none bg-transparent"
-            />
+  
+          <div className="flex flex-wrap gap-4 mb-4">
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Customer Name</label>
+              <input
+                value={custname}
+                onChange={(e) => setCustName(e.target.value)}
+                type="text"
+                placeholder="Enter Your content"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
+  
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Address</label>
+              <input
+                value={custAddress}
+                onChange={(e) => setCustAddress(e.target.value)}
+                type="text"
+                placeholder="Enter Your content"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
+  
+            <div className="flex-1 min-w-[100px]">
+              <label className="block text-sm font-bold text-black">City</label>
+              <input
+                value={custCity}
+                onChange={(e) => setCustCity(e.target.value)}
+                type="text"
+                placeholder="Enter Your content"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
           </div>
-          <div className="flex">
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Installation Price
-            </p>
-            <input
-              value={installPrice}
-              onChange={(e) => setInstallPrice(e.target.value)}
-              type="text"
-              placeholder="Enter Installation Price "
-              className="w-[350px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-            />
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Renewal price
-            </p>
-            <input
-              value={renewalPrice}
-              onChange={(e) => setRenuwalPrice(e.target.value)}
-              type="text"
-              placeholder="Enter in amounts "
-              className="w-[350px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-            />
+  
+          <div className="flex flex-wrap gap-4 mb-4">
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Refer By</label>
+              <input
+                value={custrefBy}
+                onChange={(e) => setCustRefBy(e.target.value)}
+                type="text"
+                placeholder="Enter referral name"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
+  
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Admin</label>
+              <input
+                value={adminname}
+                onChange={(e) => setAdminname(e.target.value)}
+                type="text"
+                placeholder="Enter Admin name"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
+  
+            <div className="flex-1 min-w-[150px]">
+              <label className="block text-sm font-bold text-black">Admin Number</label>
+              <input
+                value={adminMobile}
+                onChange={(e) => setAdminMobile(e.target.value)}
+                type="text"
+                placeholder="Mobile Number"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
           </div>
-          <div className="flex">
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Invoices Limit
-            </p>
-            <input
-              value={invoiceLimit}
-              onChange={(e) => setInvoiceLimit(e.target.value)}
-              type="text"
-              placeholder="Enter in Digits "
-              className="w-[350px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-            />
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Compaines Limit
-            </p>
-            <input
-              value={compainesLimit}
-              onChange={(e) => setCompainesLimit(e.target.value)}
-              type="text"
-              placeholder="Enter in Digits "
-              className="w-[350px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-            />
+  
+          <div className="flex flex-wrap gap-4 mb-4">
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Installation Price</label>
+              <input
+                value={installPrice}
+                onChange={(e) => setInstallPrice(e.target.value)}
+                type="text"
+                placeholder="Enter Installation Price"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
+  
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Renewal Price</label>
+              <input
+                value={renewalPrice}
+                onChange={(e) => setRenuwalPrice(e.target.value)}
+                type="text"
+                placeholder="Enter amounts"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
           </div>
-          <div className="flex">
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Handle By
-            </p>
-            <input
-              value={handler}
-              onChange={(e) => setHandler(e.target.value)}
-              type="text"
-              placeholder="Enter Handler name "
-              className="w-[350px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-            />
-            <p className="text-[16px] py-6  text-black ml-4 font-bold">
-              Remarks
-            </p>
-            <input
-              value={remarks}
-              onChange={(e) => setRemarks(e.target.value)}
-              type="textarea"
-              placeholder="Enter Remarks.... "
-              className="w-[350px] border border-slate-200 ml-3 my-4 rounded-lg py-3 px-5 outline-none bg-transparent"
-            />
+  
+          <div className="flex flex-wrap gap-4 mb-4">
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Invoices Limit</label>
+              <input
+                value={invoiceLimit}
+                onChange={(e) => setInvoiceLimit(e.target.value)}
+                type="text"
+                placeholder="Enter in Digits"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
+  
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Companies Limit</label>
+              <input
+                value={compainesLimit}
+                onChange={(e) => setCompainesLimit(e.target.value)}
+                type="text"
+                placeholder="Enter in Digits"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
           </div>
-
-          <button
-            className="inline-flex ml-6 my-2 w-[250px] items-center justify-center px-8 py-4 font-sans font-semibold tracking-wide text-white bg-blue-500 rounded-lg h-[60px]"
-            onClick={handleUpdateCustomer}
-          >
-            Update Data
-          </button>
-
-          <button
-            className="inline-flex ml-6 my-2 w-[200px] items-center justify-center px-8 py-4 font-sans font-semibold tracking-wide text-white bg-red-500 rounded-lg h-[60px]"
-            onClick={handleClose} // Close button handler
-          >
-            CLOSE
-          </button>
+  
+          <div className="flex flex-wrap gap-4 mb-4">
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Handle By</label>
+              <input
+                value={handler}
+                onChange={(e) => setHandler(e.target.value)}
+                type="text"
+                placeholder="Enter Handler name"
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
+  
+            <div className="flex-1 min-w-[200px]">
+              <label className="block text-sm font-bold text-black">Remarks</label>
+              <input
+                value={remarks}
+                onChange={(e) => setRemarks(e.target.value)}
+                type="textarea"
+                placeholder="Enter Remarks..."
+                className="w-full border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              />
+            </div>
+          </div>
+  
+          <div className="flex flex-wrap gap-4">
+            <button
+              className="w-full md:w-[250px] py-3 px-4 font-semibold text-white bg-blue-500 rounded-lg"
+              onClick={handleUpdateCustomer}
+            >
+              Update Data
+            </button>
+  
+            <button
+              className="w-full md:w-[200px] py-3 px-4 font-semibold text-white bg-red-500 rounded-lg"
+              onClick={handleClose}
+            >
+              CLOSE
+            </button>
+          </div>
         </div>
       </section>
     </>
   );
+  
 };
 
 export default Customer;

@@ -141,6 +141,8 @@ function CustomersList(props) {
       checkboxSelection: true,
       pinned: "left",
       flex: 1,
+      
+      
     },
     {
       field: "name",
