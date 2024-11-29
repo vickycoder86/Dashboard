@@ -110,7 +110,7 @@ const Login = () => {
                 </div>
 
                 <button className="login-button" type="submit">
-                  Submit
+                  Login
                 </button>
                 <div className="pin">Forget pin?</div>
               </div>
