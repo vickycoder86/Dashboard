@@ -98,23 +98,23 @@ const Customer = () => {
       />
       <section className="flex flex-col items-center justify-center lg:ml-[240px] px-4 py-8">
         <div className="bg-white border-sky-600 w-full max-w-6xl p-4">
-          <h1 className="text-center text-2xl md:text-3xl text-sky-600 mb-6">Customer Data</h1>
+          <h1 className="text-center text-2xl md:text-3xl text-sky-600 mb-6 ">Customer Data</h1>
   
           <div className="mb-4">
-            <label className="block text-sm text-black">Customer ID</label>
+            <label className="block text-sm font-bold text-gray-700">Customer ID</label>
             <input
               value={custId}
               disabled
               onChange={(e) => setCustId(e.target.value)}
               type="text"
               placeholder="Enter Your content"
-              className="w-full md:w-1/3 border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent"
+              className="w-full md:w-1/3 border border-slate-200 rounded-lg py-2 px-4 outline-none bg-transparent text-gray-500"
             />
           </div>
   
           <div className="flex flex-wrap gap-4 mb-4">
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Customer Name</label>
+              <label className="block text-sm font-bold text-gray-700">Customer Name</label>
               <input
                 value={custname}
                 onChange={(e) => setCustName(e.target.value)}
@@ -125,7 +125,7 @@ const Customer = () => {
             </div>
   
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Address</label>
+              <label className="block text-sm font-bold text-gray-700">Address</label>
               <input
                 value={custAddress}
                 onChange={(e) => setCustAddress(e.target.value)}
@@ -136,7 +136,7 @@ const Customer = () => {
             </div>
   
             <div className="flex-1 min-w-[100px]">
-              <label className="block text-sm font-bold text-black">City</label>
+              <label className="block text-sm font-bold text-gray-700">City</label>
               <input
                 value={custCity}
                 onChange={(e) => setCustCity(e.target.value)}
@@ -149,7 +149,7 @@ const Customer = () => {
   
           <div className="flex flex-wrap gap-4 mb-4">
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Refer By</label>
+              <label className="block text-sm font-bold text-gray-700">Refer By</label>
               <input
                 value={custrefBy}
                 onChange={(e) => setCustRefBy(e.target.value)}
@@ -160,7 +160,7 @@ const Customer = () => {
             </div>
   
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Admin</label>
+              <label className="block text-sm font-bold text-gray-700">Admin</label>
               <input
                 value={adminname}
                 onChange={(e) => setAdminname(e.target.value)}
@@ -171,7 +171,7 @@ const Customer = () => {
             </div>
   
             <div className="flex-1 min-w-[150px]">
-              <label className="block text-sm font-bold text-black">Admin Number</label>
+              <label className="block text-sm font-bold text-gray-700">Admin Number</label>
               <input
                 value={adminMobile}
                 onChange={(e) => setAdminMobile(e.target.value)}
@@ -184,7 +184,7 @@ const Customer = () => {
   
           <div className="flex flex-wrap gap-4 mb-4">
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Installation Price</label>
+              <label className="block text-sm font-bold text-gray-700">Installation Price</label>
               <input
                 value={installPrice}
                 onChange={(e) => setInstallPrice(e.target.value)}
@@ -195,7 +195,7 @@ const Customer = () => {
             </div>
   
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Renewal Price</label>
+              <label className="block text-sm font-bold text-gray-700">Renewal Price</label>
               <input
                 value={renewalPrice}
                 onChange={(e) => setRenuwalPrice(e.target.value)}
@@ -208,7 +208,7 @@ const Customer = () => {
   
           <div className="flex flex-wrap gap-4 mb-4">
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Invoices Limit</label>
+              <label className="block text-sm font-bold text-gray-700">Invoices Limit</label>
               <input
                 value={invoiceLimit}
                 onChange={(e) => setInvoiceLimit(e.target.value)}
@@ -219,7 +219,7 @@ const Customer = () => {
             </div>
   
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Companies Limit</label>
+              <label className="block text-sm font-bold text-gray-700">Companies Limit</label>
               <input
                 value={compainesLimit}
                 onChange={(e) => setCompainesLimit(e.target.value)}
@@ -232,7 +232,7 @@ const Customer = () => {
   
           <div className="flex flex-wrap gap-4 mb-4">
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Handle By</label>
+              <label className="block text-sm font-bold text-gray-700">Handle By</label>
               <input
                 value={handler}
                 onChange={(e) => setHandler(e.target.value)}
@@ -243,7 +243,7 @@ const Customer = () => {
             </div>
   
             <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-bold text-black">Remarks</label>
+              <label className="block text-sm font-bold text-gray-700">Remarks</label>
               <input
                 value={remarks}
                 onChange={(e) => setRemarks(e.target.value)}

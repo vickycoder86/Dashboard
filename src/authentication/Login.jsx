@@ -10,12 +10,11 @@ import { LOGIN } from "../Components/api/restapi";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const email = useRef();
   const password = useRef();
   const [visible, setVisible] = useState(false);
-
 
   // by this code we can stop user to go to login page if user is already logged
 
@@ -31,28 +30,34 @@ const Login = () => {
     }
   }, [navigate]);
 
-
   const handleLogin = async (e) => {
     e.preventDefault();
-  
+
     const emailValue = email.current.value.trim();
     const passwordValue = password.current.value.trim();
-  
+
     if (!emailValue || !passwordValue) {
       toast.error("Email and password cannot be blank.");
       return;
     }
-  
+
     try {
-      const response = await axios.post(LOGIN, { email: emailValue, password: passwordValue });
+      const response = await axios.post(LOGIN, {
+        email: emailValue,
+        password: passwordValue,
+      });
       // console.log("Login Response:", response.data);
-  
+
       localStorage.setItem(
-        "user_name",`${response.data.fname} ${response.data.lname}`);
+        "user_name",
+        `${response.data.fname} ${response.data.lname}`
+      );
       localStorage.setItem("Session_Id", response.data.session_id);
-  
+
       // Show success toast and delay navigation
       toast.success("Login successful!", {
+        position: "top-center",
+        autoClose: 500,
         onClose: () => navigate("/Home"), // Navigate after toast closes
       });
     } catch (error) {
@@ -60,22 +65,22 @@ const Login = () => {
       toast.error("Invalid email or password. Please try again.");
     }
   };
-  
 
   return (
     <>
       <div>
         <ToastContainer
-        position="top-center"
-        autoClose={800}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark" />
+          position="top-center"
+          autoClose={900}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
         <center>
           <form onSubmit={handleLogin}>
             <div className="login-container">
