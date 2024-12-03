@@ -1,30 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
-import "../authentication/Login.css";
 import logo from "../../src/images/logo-with-text.png";
-import feat from "../../src/images/graph.webp";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { LOGIN } from "../Components/api/restapi";
 import { useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import waves from "../images/Waves.png";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const Login = () => {
   const navigate = useNavigate();
-
   const email = useRef();
   const password = useRef();
   const [visible, setVisible] = useState(false);
 
-  // by this code we can stop user to go to login page if user is already logged
-
   useEffect(() => {
     const sessionId = localStorage.getItem("Session_Id");
     if (sessionId) {
-      // alert("You are already logged in.");
-      navigate(-1); // Redirect to the home or dashboard page
+      navigate(-1);
     }
-    //set the autofoucs on email textbox when login page is loading
     if (email.current) {
       email.current.focus();
     }
@@ -32,7 +28,6 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     const emailValue = email.current.value.trim();
     const passwordValue = password.current.value.trim();
 
@@ -46,20 +41,14 @@ const Login = () => {
         email: emailValue,
         password: passwordValue,
       });
-      // console.log("Login Response:", response.data);
-
       localStorage.setItem(
         "user_name",
         `${response.data.fname} ${response.data.lname}`
       );
       localStorage.setItem("Session_Id", response.data.session_id);
 
-      // Show success toast and delay navigation
-      toast.success("Login successful!", {
-        position: "top-center",
-        autoClose: 500,
-        onClose: () => navigate("/Home"), // Navigate after toast closes
-      });
+      toast.success("Login successful!", { position: "top-center", autoClose: 700 });
+      setTimeout(() => navigate("/Home"), 800);
     } catch (error) {
       console.error("Login Error:", error);
       toast.error("Invalid email or password. Please try again.");
@@ -68,67 +57,81 @@ const Login = () => {
 
   return (
     <>
-      <div>
-        <ToastContainer
-          position="top-center"
-          autoClose={900}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
-        <center>
-          <form onSubmit={handleLogin}>
-            <div className="login-container">
-              <div className="login-container-1">
-                <img src={logo} className="logo-login" alt="Logo" />
-                <h2 className="screen-text">
-                  Screen <span>Lock</span>
-                </h2>
-                <input
-                  className="login-inputbox"
-                  type="text"
-                  placeholder="Email"
-                  ref={email}
-                />
-                <div className="flex">
-                  <input
-                    className="login-inputbox"
-                    type={visible ? "text" : "password"}
-                    placeholder="Password"
-                    ref={password}
-                  />
-                  <div
-                    className="pt-4"
-                    onClick={() => setVisible(!visible)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    {visible ? (
-                      <i className="bi bi-eye-fill"></i>
-                    ) : (
-                      <i className="bi bi-eye-slash-fill"></i>
-                    )}
-                  </div>
-                </div>
+      <ToastContainer
+      position="top-center"
+      autoClose={900}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark" />
 
-                <button className="login-button" type="submit">
-                  Login
-                </button>
-                <div className="pin">Forget pin?</div>
+      <form onSubmit={handleLogin}>
+        <div className="flex justify-center min-h-screen p-6 sm:p-16">
+          <div className="flex flex-col items-center max-w-md w-full rounded-md p-6 sm:p-10">
+            <img src={logo} className="w-[250px] sm:w-[350px] h-auto" alt="Logo" />
+            <h1 className="text-[18px] sm:text-[20px] text-gray-700 font-semibold text-center mt-4">
+              Welcome back
+            </h1>
+            <p className="text-gray-500 text-[14px] sm:text-[16px] font-semibold text-center mt-2">
+              Continue with your email and password
+            </p>
+            <Box sx={{ "& .MuiTextField-root": { m: 1, width: "42ch", marginTop: "25px" } }}>
+              <TextField
+                id="outlined-required"
+                label="Email &nbsp;"
+                inputRef={email}
+                InputLabelProps={{ sx: { fontSize: "17px", fontWeight: "bold" } }}
+                InputProps={{ sx: { fontSize: "16px" } }}
+              />
+              <div className="flex">
+                <TextField
+                  id="outlined-password"
+                  label="Password &nbsp;"
+                  type={visible ? "text" : "password"}
+                  inputRef={password}
+                  InputLabelProps={{ sx: { fontSize: "17px", fontWeight: "bold" } }}
+                  InputProps={{ sx: { fontSize: "16px" } }}
+                />
+                <div
+                  className="pt-8"
+                  onClick={() => setVisible(!visible)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {visible ? (
+                    <i className="bi bi-eye-fill"></i>
+                  ) : (
+                    <i className="bi bi-eye-slash-fill"></i>
+                  )}
+                </div>
               </div>
-              <hr />
-              <div className="login-container-2">
-                <img src={feat} className="feat-class" alt="Feature" />
-                <div className="info">Access data on your fingertips</div>
-              </div>
-            </div>
-          </form>
-        </center>
-      </div>
+            </Box>
+            <button
+              className="bg-[#00A0E3] text-white h-12 w-[360px] text-[15px] sm:text-[17px] font-bold rounded-md mt-6 mr-4"
+              type="submit"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </form>
+      <div
+        style={{
+          position: "fixed",
+          top: 300,
+          left: 0,
+          width: "100vw",
+          height: "80vh",
+          backgroundImage: `url(${waves})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          zIndex: -1,
+        }}
+      ></div>
     </>
   );
 };

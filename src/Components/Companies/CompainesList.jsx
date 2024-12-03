@@ -1,7 +1,3 @@
-
-
-
-
 import { AgGridReact } from "ag-grid-react"; // React Data Grid Component
 import "ag-grid-community/styles/ag-grid.css"; // Mandatory CSS required by the Data Grid
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Optional Theme applied to the Data Grid
@@ -12,7 +8,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SideBar from "../Sidebar";
 import axios from "axios";
-import { GET_ALL_COMPAINES, SESSION_ID } from "../api/restapi";
+import { GET_ALL_COMPAINES, } from "../api/restapi";
 
 
 
@@ -30,18 +26,18 @@ function CompainesList(props) {
 
 // by this code we can stop user to go to login page if already logged
 
-// useEffect(() => {
-//   const jwtToken = localStorage.getItem("Session_Id");
-//   if (jwtToken) {
+useEffect(() => {
+  const jwtToken = localStorage.getItem("Session_Id");
+  if (jwtToken) {
    
-//   }else{
-//     navigate("/");
-//   }
-// }, []);
+  }else{
+    navigate("/");
+  }
+}, []);
 
 //till here
 
-
+const SESSION_ID = localStorage.getItem("Session_Id")
   const getallCustomerList = async () => {
     try {
       const response = await axios.get(GET_ALL_COMPAINES,{
