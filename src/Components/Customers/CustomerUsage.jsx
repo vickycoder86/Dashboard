@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { SESSION_ID } from "../api/restapi";
+// import { SESSION_ID } from "../api/restapi";
 
 const CustomerUsage = () => {
 
@@ -11,6 +11,8 @@ const CustomerUsage = () => {
   const [selectYear, setSelectYear] = useState("2024-25"); // Default selected year
   const navigate = useNavigate();
 
+
+  const SESSION_ID = localStorage.getItem("Session_Id")
 
   // by this code we can stop user to go to login page if already logged
 

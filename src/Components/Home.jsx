@@ -45,7 +45,7 @@ const Home = () => {
 
         {/* Right Section */}
         <div className="flex items-center space-x-4">
-          <div className="p-2.5 flex items-center rounded-md bg-pink-300 cursor-pointer text-red-800 hover:bg-red-200">
+          <div className="p-2.5 flex items-center rounded-md bg-pink-300 cursor-pointer text-red-800 hover:bg-red-400">
             <i className="bi bi-box-arrow-in-right"></i>
             <span
               className="text-[15px] ml-4 font-bold  text-red-800"

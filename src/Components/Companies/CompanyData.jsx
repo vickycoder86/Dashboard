@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import SideBar from "../Sidebar";
-import { SESSION_ID, UPDATE_COMPANY } from "../api/restapi";
+import { UPDATE_COMPANY } from "../api/restapi";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Calender from "../Calender";
 
 const CompanyData = () => {
+
+  const SESSION_ID = localStorage.getItem("Session_Id")
   const navigate = useNavigate();
   const location = useLocation();
   // console.log("comapany location is ", location.state);
