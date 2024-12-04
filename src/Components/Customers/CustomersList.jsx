@@ -16,6 +16,9 @@ const rowClassRules = {
   green: (row) => row.data.section === "C",
 };
 
+// User Name 
+const userName = localStorage.getItem("user_name");
+
 let gridApi;
 
 function CustomersList(props) {
@@ -329,13 +332,22 @@ function CustomersList(props) {
   return (
     <>
       <SideBar />
-      <div className="ag-theme-quartz" style={{ height: 500, marginLeft: 240 }}>
-        <button
-          className=" m-2 w-[140px] h-[30px] mt-2 bg-gray-700 rounded-md text-white"
-          onClick={onExportClick}
-        >
-          Export to Excel
-        </button>
+      
+      <div className="ag-theme-quartz" style={{ height: 800, marginLeft: 240, }}>
+        <div style={{display: "flex" , alignItems: "center" , justifyContent: "space-between", margin: "15px 0 15px 0", lineHeight: "1.5"}}>
+          <div>
+            <p style={{fontSize: "25px", fontWeight: 700}}>Customer List</p>
+            <p style={{color: "#919191"}}>Wlecome {userName}</p>
+          </div>
+          <div>
+            <button
+            className=" m-2 w-[140px] h-[30px] mt-2 bg-stone-800 hover:bg-stone-700 rounded-md text-white"
+            onClick={onExportClick}
+          >
+            Export to Excel
+          </button>
+          </div>
+        </div>
 
         <AgGridReact
           rowData={rowData}

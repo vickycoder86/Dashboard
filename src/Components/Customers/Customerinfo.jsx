@@ -70,7 +70,7 @@ const Customerinfo = ({ closePopup, isopen }) => {
     orderbook_enabled,
   }) => (
     <button
-      className="inline-flex my-2 w-[50px] items-center justify-center px-2 py-4 font-sans font-semibold tracking-wide text-white bg-blue-500 rounded-lg h-[25px]"
+      className="inline-flex my-2 w-[50px] items-center justify-center px-2 py-4 font-sans font-semibold tracking-wide text-white bg-red-500 rounded-lg h-[25px]"
       onClick={() =>
         navigate("/CompanyData", {
           state: {

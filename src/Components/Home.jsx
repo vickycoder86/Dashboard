@@ -35,27 +35,28 @@ const Home = () => {
   return (
     <>
       <SideBar />
-      <div className="flex justify-between px-4 py-3">
+      <div className="flex justify-between px-4 py-3" style={{alignItems: "center"}}>
         {/* Left Section */}
         <div className="ml-[240px]">
-          <h1 className="font-bold">
+          <h1 style={{fontSize: "20px", fontWeight: 700}}>
             Welcome <span className=" text-black">{userName}</span>
           </h1>
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center space-x-4">
-          <div className="p-2.5 flex items-center rounded-md bg-pink-300 cursor-pointer text-red-800 hover:bg-red-400">
+        <div className="flex items-center space-x-5" >
+          <div className="p-2.5 flex items-center rounded-md  cursor-pointer text-red-500 hover:text-red-600" style={{fontSize: "20px"}} >
             <i className="bi bi-box-arrow-in-right"></i>
             <span
-              className="text-[15px] ml-4 font-bold  text-red-800"
+              className="text-[15px] ml-4 font-bold  text-red-500 hover:text-red-600"
+              style={{fontSize: "20px"}}
               onClick={logout}
             >
               Logout
             </span>
           </div>
-          <i className="bi bi-bell-fill block text-[24px]"></i>
-          <button className="rounded-full bg-blue-600 p-4 text-white">
+          <i className="bi bi-bell-fill block text-[24px]" style={{color: "#c7c3c3"}}></i>
+          <button style={{backgroundColor: "#bbe7fc", color: "#1c1b75" ,fontSize: "22px" ,fontWeight: "bold", height: "45px", width: "45px",borderRadius: "50%", display: "inline-block" , boxShadow: "1px 1px 1px 1px #E6E6E6"}}>
             {userName.charAt(0).toUpperCase()}
           </button>
         </div>
@@ -72,20 +73,6 @@ const Home = () => {
         pauseOnHover
         theme="dark"
       />
-      <div
-        style={{
-          position: "fixed",
-          top: -5,
-          left: 0,
-          width: "100vw",
-          height: "100vh",
-          backgroundImage: `url(${graph})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          zIndex: -1,
-        }}
-      ></div>
     </>
   );
 };

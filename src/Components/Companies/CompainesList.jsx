@@ -11,7 +11,8 @@ import axios from "axios";
 import { GET_ALL_COMPAINES, } from "../api/restapi";
 
 
-
+// User Name 
+const userName = localStorage.getItem("user_name");
 
 
 //conditional rules for any colums which will apply on whole row
@@ -286,11 +287,18 @@ const SESSION_ID = localStorage.getItem("Session_Id")
   return (
     <>
     <SideBar />
-      <div className="ag-theme-quartz" style={{ height: 640 ,marginLeft: 240}}>
-        
-        <button
-        className=" m-2 w-[140px] h-[30px] mt-2 bg-gray-700 rounded-md text-white"
-        onClick={() => onExportClick()}>Export to Excel</button>
+      <div className="ag-theme-quartz" style={{ height: 800 ,marginLeft: 240}}>
+        <div style={{display: "flex" , alignItems: "center" , justifyContent: "space-between", margin: "15px 0 15px 0", lineHeight: "1.5"}}>
+          <div>
+            <p style={{fontSize: "25px", fontWeight: 700}}>Companies List</p>
+            <p style={{color: "#919191"}}>Wlecome {userName}</p>
+          </div>
+          <div>
+            <button
+            className=" m-2 w-[140px] h-[30px] mt-2 bg-stone-800 hover:bg-stone-700 rounded-md text-white"
+            onClick={() => onExportClick()}>Export to Excel</button>
+          </div>
+        </div>
         
        
         <AgGridReact
