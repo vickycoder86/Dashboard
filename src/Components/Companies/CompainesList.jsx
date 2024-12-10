@@ -287,7 +287,7 @@ const SESSION_ID = localStorage.getItem("Session_Id")
   return (
     <>
     <SideBar />
-      <div className="ag-theme-quartz" style={{ height: 800 ,marginLeft: 240}}>
+      <div className="ag-theme-quartz" style={{ height: 600 ,marginLeft: 240}}>
         <div style={{display: "flex" , alignItems: "center" , justifyContent: "space-between", margin: "15px 0 15px 0", lineHeight: "1.5"}}>
           <div>
             <p style={{fontSize: "25px", fontWeight: 700}}>Companies List</p>
@@ -323,8 +323,4 @@ const SESSION_ID = localStorage.getItem("Session_Id")
 
 export default CompainesList;
 
-//https://mockapi.io/projects/672d8c32fd8979715642c055
 
-//https://www.youtube.com/watch?v=mVd-USPaXpo
-
-//https://www.youtube.com/watch?v=lQ8HwF9cwvs&list=PLqhnP4YYLcb4X3AgmW699wyAhoP2SYf5j&index=6

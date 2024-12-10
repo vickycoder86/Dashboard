@@ -62,7 +62,7 @@ const CompanyData = () => {
       // Show success
       toast.success("Data Update successful!", {});
       setTimeout(() => {
-        navigate(-1);
+        navigate("/CustomersList");
       }, 1200);
     } catch (error) {
       console.error("Data Update Error:", error);

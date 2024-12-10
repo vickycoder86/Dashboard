@@ -4,9 +4,11 @@ import SideBar from "../Sidebar";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { SESSION_ID, UPDATE_CUSTOMER } from "../api/restapi";
+import { UPDATE_CUSTOMER } from "../api/restapi";
 
 const Customer = () => {
+
+  const SESSION_ID = localStorage.getItem("Session_Id")
   const navigate = useNavigate();
   const location = useLocation();
   // console.log("customer location is ", location.state);
@@ -35,7 +37,8 @@ const Customer = () => {
 
   function handleClose() {
     // closePopup();
-    navigate(-1); // Navigates back to the previous page
+    // navigate(-1); // Navigates back to the previous page
+     // Navigates back to the previous page
   }
 
   //create a function so i can update customer data as needed
@@ -73,7 +76,7 @@ const Customer = () => {
       // Show success
       toast.success("Data Update successful!", {});
       setTimeout(() => {
-        navigate(-1);
+        navigate("/CustomersList");
       }, 800);
     } catch (error) {
       console.error("Data Update Error:", error);
