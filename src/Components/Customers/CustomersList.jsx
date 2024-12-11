@@ -553,8 +553,3 @@ function CustomersList(props) {
 
 export default CustomersList;
 
-//https://mockapi.io/projects/672d8c32fd8979715642c055
-
-//https://www.youtube.com/watch?v=mVd-USPaXpo
-
-//https://www.youtube.com/watch?v=lQ8HwF9cwvs&list=PLqhnP4YYLcb4X3AgmW699wyAhoP2SYf5j&index=6

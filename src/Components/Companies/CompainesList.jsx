@@ -215,7 +215,7 @@ const SESSION_ID = localStorage.getItem("Session_Id")
     {
       field: "Actions",
       pinned:"right",
-      width: 75,
+      width: 85,
       flex:1,
       cellRenderer: (props) => {
         // console.log(props);
@@ -324,8 +324,3 @@ const SESSION_ID = localStorage.getItem("Session_Id")
 
 export default CompainesList;
 
-//https://mockapi.io/projects/672d8c32fd8979715642c055
-
-//https://www.youtube.com/watch?v=mVd-USPaXpo
-
-//https://www.youtube.com/watch?v=lQ8HwF9cwvs&list=PLqhnP4YYLcb4X3AgmW699wyAhoP2SYf5j&index=6
