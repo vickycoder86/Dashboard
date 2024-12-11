@@ -11,7 +11,7 @@ const Customer = () => {
   const SESSION_ID = localStorage.getItem("Session_Id")
   const navigate = useNavigate();
   const location = useLocation();
-  // console.log("customer location is ", location.state);
+  console.log("customer location is ", location.state);
 
   const [custId, setCustId] = useState(location.state.id);
   const [custname, setCustName] = useState(location.state.name);
@@ -35,9 +35,14 @@ const Customer = () => {
   const [handler, setHandler] = useState(location.state.handler);
   const [remarks, setRemarks] = useState(location.state.remarks);
 
+  const [orderbookStatus, setOrderBookStatus] = useState(
+    location.state.orderbook_enabled
+  );
+
+
   function handleClose() {
     // closePopup();
-    // navigate(-1); // Navigates back to the previous page
+    navigate(-1); // Navigates back to the previous page
      // Navigates back to the previous page
   }
 
@@ -84,6 +89,11 @@ const Customer = () => {
     }
   };
 
+  const getSelectValue = (e) => {
+    setOrderBookStatus(e.target.value);
+    console.log(e.target.value)
+  };
+
   return (
     <>
       <SideBar />
@@ -99,7 +109,7 @@ const Customer = () => {
         pauseOnHover
         theme="dark"
       />
-      <section className="flex flex-col items-center justify-center lg:ml-[240px] px-4 py-8">
+      <section className="flex flex-col items-center justify-center lg:ml-[240px] px-4 py-4">
         <div className="bg-white border-sky-600 w-full max-w-6xl p-4">
           <h1 className="text-center text-2xl md:text-3xl text-sky-600 mb-6 ">Customer Data</h1>
   
@@ -232,8 +242,25 @@ const Customer = () => {
               />
             </div>
           </div>
+
+          <div className="flex-1 min-w-[200px] gap-4">
+          <p className="block text-sm font-bold text-gray-700">
+              OrderedBook Enabled
+            </p>
+            <select
+              className="text-[16px] text-black  rounded-md mb-4  w-[300px]"
+              defaultValue={orderbookStatus}
+              value={orderbookStatus}
+              onChange={getSelectValue}
+            >
+              <option value={true}>YES</option>
+              <option value={false}>NO</option>
+            </select>
+            </div>
+          
+          
   
-          <div className="flex flex-wrap gap-4 mb-4">
+          <div className="flex flex-wrap gap-4 mb-6">
             <div className="flex-1 min-w-[200px]">
               <label className="block text-sm font-bold text-gray-700">Handle By</label>
               <input
