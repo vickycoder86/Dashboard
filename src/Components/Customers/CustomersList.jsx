@@ -83,7 +83,9 @@ function CustomersList(props) {
     companieslimit,
   }) => (
     <button
-      className="inline-flex my-2 w-[50px] items-center justify-center px-2 py-4 font-sans font-semibold tracking-wide text-white bg-blue-500 rounded-lg h-[25px]"
+      
+      className="inline-flex my-2 w-[50px] items-center justify-center px-2 py-4 font-sans font-semibold tracking-wide text-white bg-stone-800 hover:bg-stone-700  h-[30px]"
+      style={{margin: "4px", borderRadius: "5px", alignItems: "center"}}
       onClick={() =>
         navigate("/Customerinfo", {
           state: {
@@ -107,7 +109,7 @@ function CustomersList(props) {
         })
       }
     >
-      EDIT
+      Edit
     </button>
   );
   const CustomerViewDetails = ({ name, station, GSt, phone }) => (
@@ -266,7 +268,7 @@ function CustomersList(props) {
     {
       field: "Actions",
       pinned: "right",
-      width: 100,
+      width: 90,
       cellRenderer: (props) => {
         // console.log(props);
         return (
@@ -329,29 +331,214 @@ function CustomersList(props) {
     gridApi.exportDataAsCsv();
   };
 
+  //  customer list Manage column visibility state
+  const [columnsVisibilityCustomer, setColumnsVisibilityCustomer] = useState({
+    id:true,
+    name:true,
+    address:true,
+    city:true,
+    admin_mobile:true,
+    admin_name:true,
+    installation_price:true,
+    renewal_price:true,
+    companies:true,
+    remarks:true,
+    handler:true,
+    Actions:true,
+   
+  });
+
+  // customer list Filter visible columns based on checkbox state
+  const visibleColumnsCompany = columnDefs.filter(
+    (col) => columnsVisibilityCustomer[col.field]
+  );
+
+  //  customer list Manage sidebar visibility state
+  const [isSidebarVisibleCustomer, setSidebarVisibleCustomer] = useState(false);
+
+  // customer list Handle checkbox change to toggle column visibility
+  const handleCheckboxChangeCompany = (column) => {
+    setColumnsVisibilityCustomer({
+      ...columnsVisibilityCustomer,
+      [column]: !columnsVisibilityCustomer[column],
+    });
+  };
+
+  // company Toggle sidebar visibility
+  const toggleSidebarCompany = () => {
+    setSidebarVisibleCustomer(!isSidebarVisibleCustomer);
+  };
+
+
   return (
     <>
       <SideBar />
       
-      <div className="ag-theme-quartz" style={{ height: 610, marginLeft: 240, }}>
+      <div className="ag-theme-quartz" style={{ height: 620, marginLeft: 240, }}>
         <div style={{display: "flex" , alignItems: "center" , justifyContent: "space-between", margin: "15px 0 15px 0", lineHeight: "1.5"}}>
           <div>
             <p style={{fontSize: "25px", fontWeight: 700}}>Customer List</p>
-            <p style={{color: "#919191"}}>Wlecome {userName}</p>
+            <p style={{color: "#919191"}}>Welcome {userName}</p>
           </div>
           <div>
             <button
-            className=" m-2 w-[140px] h-[30px] mt-2 bg-stone-800 hover:bg-stone-700 rounded-md text-white"
+            className=" m-2 w-[140px] h-[30px] mt-2 text-white bg-stone-800 hover:bg-stone-700 rounded-md "
             onClick={onExportClick}
           >
             Export to Excel
           </button>
           </div>
         </div>
+        {/*  company Sidebar Toggle Button */}
+        <button
+                id="viewHideButton"
+                onClick={toggleSidebarCompany}
+                title="Hide & Show Columns"
+                style={{
+                  position: "absolute",
+
+                  right: isSidebarVisibleCustomer ? "200px" : "10px",
+                  zIndex: 1,
+                }}
+              >
+                {isSidebarVisibleCustomer ? (
+                  <i class="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
+                ) : (
+                  <i class="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
+                )}
+              </button>
+
+              {/* company Sidebar */}
+              <div
+                style={{
+                  width: isSidebarVisibleCustomer ? "170px" : "0",
+                  transition: "width 0.3s ease",
+                  overflow: "hidden",
+                  float: "right",
+                  padding: isSidebarVisibleCustomer ? "20px" : "0",
+                  borderLeft: isSidebarVisibleCustomer ? "1px solid #ccc" : "none",
+                  backgroundColor: "#000000",
+                  color: "white",
+                  position: "relative",
+                }}
+              >
+                {isSidebarVisibleCustomer && (
+                  <>
+                    <h3>Show/Hide Columns</h3>
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.id}
+                        onChange={() => handleCheckboxChangeCompany("id")}
+                      />
+                      Customer ID
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.name}
+                        onChange={() => handleCheckboxChangeCompany("name")}
+                      />
+                      Customer Name
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.address}
+                        onChange={() => handleCheckboxChangeCompany("address")}
+                      />
+                      Address
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.city}
+                        onChange={() => handleCheckboxChangeCompany("city")}
+                      />
+                      City
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.admin_name}
+                        onChange={() => handleCheckboxChangeCompany("admin_name")}
+                      />
+                      Admin
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.admin_mobile}
+                        onChange={() =>
+                          handleCheckboxChangeCompany("admin_mobile")
+                        }
+                      />
+                      Mobile
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.installation_price}
+                        onChange={() => handleCheckboxChangeCompany("installation_price")}
+                      />
+                      Installation Price
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.renewal_price}
+                        onChange={() =>
+                          handleCheckboxChangeCompany("renewal_price")
+                        }
+                      />
+                      Renewal Price
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.handler}
+                        onChange={() =>
+                          handleCheckboxChangeCompany("handler")
+                        }
+                      />
+                     Handler
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCustomer.remarks}
+                        onChange={() =>
+                          handleCheckboxChangeCompany("remarks")
+                        }
+                      />
+                     Remarks
+                    </label>
+                  </>
+                )}
+              </div>
 
         <AgGridReact
           rowData={rowData}
-          columnDefs={columnDefs}
+          columnDefs={visibleColumnsCompany}
           rowSelection="multiple"
           pagination={true}
           rowClassRules={rowClassRules}
@@ -366,3 +553,8 @@ function CustomersList(props) {
 
 export default CustomersList;
 
+//https://mockapi.io/projects/672d8c32fd8979715642c055
+
+//https://www.youtube.com/watch?v=mVd-USPaXpo
+
+//https://www.youtube.com/watch?v=lQ8HwF9cwvs&list=PLqhnP4YYLcb4X3AgmW699wyAhoP2SYf5j&index=6

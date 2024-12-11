@@ -74,7 +74,8 @@ const SESSION_ID = localStorage.getItem("Session_Id")
   //this for any action you wants to perform in any button
   const DisplayCustomer = ({ id,name, gstno, industry, created_at,payment_alert_date,freeze_date,terminate_date,orderbook_enabled }) => (
     
-    <button className="inline-flex my-2 w-[50px] items-center justify-center px-2 py-4 font-sans font-semibold tracking-wide text-white bg-blue-500 rounded-lg h-[25px]"
+    <button className="inline-flex my-2 w-[50px] items-center justify-center px-2 py-4 font-sans font-semibold tracking-wide text-white bg-stone-800 hover:bg-stone-700  h-[30px]"
+      style={{margin: "4px", borderRadius: "5px", alignItems: "center"}}
       onClick={() =>
         navigate("/CompanyData", {
           state: {id:id ,name: name, industry: industry, created_at: created_at, payment_alert_date: payment_alert_date, freeze_date:freeze_date,terminate_date:terminate_date,orderbook_enabled:orderbook_enabled,orderbook_enabled:orderbook_enabled,gstno:gstno},
@@ -214,7 +215,7 @@ const SESSION_ID = localStorage.getItem("Session_Id")
     {
       field: "Actions",
       pinned:"right",
-      width: 100,
+      width: 75,
       flex:1,
       cellRenderer: (props) => {
         // console.log(props);
@@ -287,15 +288,15 @@ const SESSION_ID = localStorage.getItem("Session_Id")
   return (
     <>
     <SideBar />
-      <div className="ag-theme-quartz" style={{ height: 600 ,marginLeft: 240}}>
+      <div className="ag-theme-quartz" style={{ height: 620 ,marginLeft: 240}}>
         <div style={{display: "flex" , alignItems: "center" , justifyContent: "space-between", margin: "15px 0 15px 0", lineHeight: "1.5"}}>
           <div>
             <p style={{fontSize: "25px", fontWeight: 700}}>Companies List</p>
-            <p style={{color: "#919191"}}>Wlecome {userName}</p>
+            <p style={{color: "#919191"}}>Welcome {userName}</p>
           </div>
           <div>
             <button
-            className=" m-2 w-[140px] h-[30px] mt-2 bg-stone-800 hover:bg-stone-700 rounded-md text-white"
+            className=" m-2 w-[140px] h-[30px] mt-2 text-white bg-stone-800 hover:bg-stone-700 rounded-md "
             onClick={() => onExportClick()}>Export to Excel</button>
           </div>
         </div>
@@ -323,4 +324,8 @@ const SESSION_ID = localStorage.getItem("Session_Id")
 
 export default CompainesList;
 
+//https://mockapi.io/projects/672d8c32fd8979715642c055
 
+//https://www.youtube.com/watch?v=mVd-USPaXpo
+
+//https://www.youtube.com/watch?v=lQ8HwF9cwvs&list=PLqhnP4YYLcb4X3AgmW699wyAhoP2SYf5j&index=6

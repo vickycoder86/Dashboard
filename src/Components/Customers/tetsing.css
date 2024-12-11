@@ -1,0 +1,38 @@
+.ag-theme-quartz,
+.ag-theme-quartz-dark {
+  --ag-foreground-color: rgb(0, 0, 0);
+  --ag-background-color: rgb(250, 249, 249);  
+  --ag-header-background-color: rgb(248, 246, 246);
+  --ag-border-color: rgb(212, 212, 212);
+  --ag-row-hover-color: rgb(235, 235, 235);
+}
+   
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+#mark {
+  margin: 0 -0.4em;
+  padding: 0.1em 0.4em;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
+  color: rgb(236, 236, 236);
+  background-image: linear-gradient(
+  to right,
+  #128fe9 4%,
+  #25339c
+  );
+
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}

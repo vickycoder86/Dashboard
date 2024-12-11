@@ -96,21 +96,10 @@ const Login = () => {
                   InputLabelProps={{ sx: { fontSize: "17px", fontWeight: "bold" } }}
                   InputProps={{ sx: { fontSize: "16px" } }}
                 />
-                <div
-                  className="pt-8"
-                  onClick={() => setVisible(!visible)}
-                  style={{ cursor: "pointer" }}
-                >
-                  {visible ? (
-                    <i className="bi bi-eye-fill"></i>
-                  ) : (
-                    <i className="bi bi-eye-slash-fill"></i>
-                  )}
-                </div>
               </div>
             </Box>
             <button
-              className="bg-[#00A0E3] text-white h-12 w-[360px] text-[15px] sm:text-[17px] font-bold rounded-md mt-6 mr-4"
+              className="bg-[#00A0E3] text-white h-12 w-[360px] text-[15px] sm:text-[17px] font-bold rounded-md mt-6"
               type="submit"
             >
               Login

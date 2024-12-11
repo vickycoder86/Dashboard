@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import SideBar from "../Sidebar";
+
 // import { SESSION_ID } from "../api/restapi";
 
 const CustomerUsage = () => {
@@ -76,8 +78,11 @@ const CustomerUsage = () => {
   );
 
   return (
-    <div className="p-4 sm:p-6">
-      <h1 className="text-center font-bold py-2 text-2xl">Customer Usage</h1>
+    <>
+      <div >
+      <SideBar />
+    <div className="p-4 sm:p-6 ml-[240px]">
+      <h1 className="text-center font-bold py-2 text-2xl"><span id="mark">Customer Usage</span></h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
       <p className="font-bold px-2">
           Customer Name: {custname}
@@ -112,29 +117,29 @@ const CustomerUsage = () => {
         </select>
       </div>
 
-      <h3 className="font-bold py-2 px-2">Transaction Summary for {selectYear}</h3>
-      <div className="overflow-x-auto">
-        <table className="table-auto w-full bg-white border border-gray-300">
-          <thead className="bg-gray-400">
-            <tr>
-              <th className="border px-2 py-1">Type</th>
-              <th className="border px-2 py-1">Count</th>
-              <th className="border px-2 py-1">Total Amount</th>
-              <th className="border px-2 py-1">First Created At(MM/DD/YY)</th>
-              <th className="border px-2 py-1">Last Created At(MM/DD/YY)</th>
+      <h3 className="font-bold py-2 px-2 mt-[30px]">Transaction Summary for {selectYear}</h3>
+      <div className="overflow-x-auto" style={{boxShadow: "0 0 5px 2px #F0F0F0", borderRadius: "8px", border: "1px solid #D6D6D6"}} >
+        <table className="table-auto w-full" style={{ textAlign: "left", lineHeight: "2.2", backgroundColor: "white"}}>
+          <thead >
+            <tr style={{borderBottom: "1px solid #EDEDED",}}>
+              <th className=" px-2 py-1">Type</th>
+              <th className=" px-2 py-1">Count</th>
+              <th className=" px-2 py-1">Total Amount</th>
+              <th className=" px-2 py-1">First Created At (MM/DD/YY)</th>
+              <th className=" px-2 py-1">Last Created At (MM/DD/YY)</th>
             </tr>
           </thead>
-          <tbody className="bg-yellow-400">
+          <tbody>
             {yearTransactionData?.data.map((record, index) => (
-              <tr key={index} className="border">
-                <td className="border px-2 py-1">{record.type}</td>
-                <td className="border px-2 py-1">{record.count}</td>
-                <td className="border px-2 py-1">{record.total_amt}</td>
-                <td className="border px-2 py-1">
+              <tr key={index}  style={{borderBottom: "2px solid #EDEDED",}}>
+                <td className="px-2 py-1">{record.type}</td>
+                <td className="px-2 py-1">{record.count}</td>
+                <td className="px-2 py-1">{record.total_amt}</td>
+                <td className="px-2 py-1">
                   {new Date(record.first_created_at).toLocaleString()}
                   {/* date format is mm/dd/yy */}
                 </td>
-                <td className="border px-2 py-1">
+                <td className="px-2 py-1">
                   {new Date(record.last_created_at).toLocaleString()}
                 </td>
               </tr>
@@ -143,20 +148,20 @@ const CustomerUsage = () => {
         </table>
       </div>
 
-      <h3 className="font-bold py-2 px-2">API Usage Summary for {selectYear}</h3>
-      <div className="overflow-x-auto">
-        <table className="table-auto w-full bg-white border border-gray-300">
-          <thead className="bg-gray-400">
-            <tr>
-              <th className="border px-2 py-1">API Type</th>
-              <th className="border px-2 py-1">Count</th>
+      <h3 className="font-bold py-2 px-2 mt-[60px]">API Usage Summary for {selectYear}</h3>
+      <div className="overflow-x-auto" style={{boxShadow: "0 0 5px 2px #F0F0F0", borderRadius: "8px",border: "1px solid #D6D6D6"}} >
+        <table className="table-auto w-full" style={{ textAlign: "left", lineHeight: "2.4", backgroundColor: "white"}}>
+          <thead>
+            <tr style={{borderBottom: "1px solid #EDEDED",}}>
+              <th className=" px-2 py-1">API Type</th>
+              <th className="px-2 py-1">Count</th>
             </tr>
           </thead>
-          <tbody className="bg-yellow-400">
+          <tbody>
             {yearApiUsageData?.data.map((apiRecord, index) => (
-              <tr key={index}>
-                <td className="border px-2 py-1">{apiRecord.type}</td>
-                <td className="border px-2 py-1">{apiRecord.count}</td>
+              <tr key={index} style={{borderBottom: "2px solid #EDEDED",}}>
+                <td className="px-2 py-1">{apiRecord.type}</td>
+                <td className="px-2 py-1">{apiRecord.count}</td>
               </tr>
             ))}
           </tbody>
@@ -164,14 +169,17 @@ const CustomerUsage = () => {
       </div>
 
       <div className="text-center mt-4">
+      <i class="fa-solid fa-arrow-left" style={{color: "red"}}></i>
         <button
-          className="inline-flex w-full sm:w-[200px] items-center justify-center font-sans font-semibold tracking-wide py-2 mt-4 text-white bg-green-400 rounded-lg h-[50px]"
+          className="inline-flex w-full sm:w-[200px] items-center justify-center font-sans font-semibold tracking-wide py-2 mt-4 text-white bg-stone-800 hover:bg-stone-700 rounded-lg h-[50px]"
           onClick={handleClose}
         >
-          CLOSE
+          Back
         </button>
       </div>
     </div>
+      </div>
+    </>
   );
 };
 

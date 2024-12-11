@@ -4,6 +4,7 @@ import graph from "../images/graph-3.jpg";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Dasbbord from "../images/dashboaed coming soon.png"
 
 const Home = () => {
   const navigate = useNavigate();
@@ -61,6 +62,11 @@ const Home = () => {
           </button>
         </div>
       </div>
+      <div>
+          <img src={Dasbbord} alt=""
+          style={{display: "block", marginLeft:"44%", marginTop:"11%",height:"250px"}}
+          />
+        </div>
       <ToastContainer
         position="bottom-right"
         autoClose={800}
@@ -74,6 +80,7 @@ const Home = () => {
         theme="dark"
       />
     </>
+    
   );
 };
 

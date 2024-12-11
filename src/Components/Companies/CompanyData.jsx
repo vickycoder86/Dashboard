@@ -62,7 +62,7 @@ const CompanyData = () => {
       // Show success
       toast.success("Data Update successful!", {});
       setTimeout(() => {
-        navigate("/CustomersList");
+        navigate(-1);
       }, 1200);
     } catch (error) {
       console.error("Data Update Error:", error);
@@ -82,10 +82,10 @@ const CompanyData = () => {
     <>
       <SideBar />
       <section className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-5 ml-[200px]">
-        <div className=" bg-white border-sky-600 rounded-md">
+        <div style={{border: "1px solid #D4D4D4", padding: "15px", borderRadius: "8px", backgroundColor: "white", boxShadow: "1px 1px 1px 5px #F0F0F0"}}>
           <form onSubmit={formSubmit}>
             <h1 className="text-center text-[32px] text-sky-600 ">
-              Company Data
+              <span id="mark">Company Data</span>
             </h1>
             <p className="text-[16px] py-2 text-black ml-4 font-bold">
               Payment Alert Date
@@ -104,7 +104,7 @@ const CompanyData = () => {
               OrderedBook Enabled
             </p>
             <select
-              className="text-[16px] text-black ml-4 font-bold rounded-md py-2 w-[300px]"
+              className="text-[16px] text-black ml-4 font-bold rounded-md py-2 w-[296px]"
               defaultValue={orderbookStatus}
               value={orderbookStatus}
               onChange={getSelectValue}
@@ -114,14 +114,15 @@ const CompanyData = () => {
             </select>
             <div>
               <button
-                className="inline-flex ml-2 w-[180px] items-center justify-center px-8 py-4 mt-6  font-sans font-semibold tracking-wide text-white bg-blue-500 rounded-lg h-[50px]"
+                className="inline-flex ml-2 w-[180px] items-center justify-center px-8 py-4 mt-6  font-sans font-semibold tracking-wide text-white bg-blue-500 hover:bg-blue-600 rounded-lg h-[50px]"
                 onClick={handleUpdateCompany}
               >
                 Update Data
               </button>
 
               <button
-                className="inline-flex ml-4 my-2 w-[150px] items-center justify-center px-8 py-4 font-sans font-semibold tracking-wide text-white bg-red-500 rounded-lg h-[50px]"
+  
+                className="inline-flex ml-4 my-2 w-[150px] items-center justify-center px-8 py-4 font-sans font-semibold tracking-wide text-white bg-red-500 hover:bg-red-600  rounded-lg h-[50px]"
                 onClick={handleClose} // Close button handler
               >
                 CLOSE
