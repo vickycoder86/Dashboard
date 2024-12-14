@@ -39,6 +39,7 @@ useEffect(() => {
 //till here
 
 const SESSION_ID = localStorage.getItem("Session_Id")
+
   const getallCustomerList = async () => {
     try {
       const response = await axios.get(GET_ALL_COMPAINES,{
@@ -284,6 +285,47 @@ const SESSION_ID = localStorage.getItem("Session_Id")
     gridApi.exportDataAsCsv();
   };
 
+  //  company list Manage column visibility state
+  const [columnsVisibilityCompany, setColumnsVisibilityCompany] = useState({
+    id:true,
+    name:true,
+    gst_no:true,
+    industry:true,
+    created_at:true,
+    payment_alert_date:true,
+    freeze_date:true,
+    terminate_date:true,
+    orderbook_enabled:true,
+    customer_name:true,
+    Actions:true,
+    
+   
+  });
+
+  // compnay list Filter visible columns based on checkbox state
+  const visibleColumnsCompany = columnDefs.filter(
+    (col) => columnsVisibilityCompany[col.field]
+  );
+
+
+
+  //  company list Manage sidebar visibility state
+  const [isSidebarVisibleCustomer, setSidebarVisibleCustomer] = useState(false);
+
+  // company list Handle checkbox change to toggle column visibility
+  const handleCheckboxChangeCompany = (column) => {
+    setColumnsVisibilityCompany({
+      ...columnsVisibilityCompany,
+      [column]: !columnsVisibilityCompany[column],
+    });
+  };
+
+  // companyList Toggle sidebar visibility
+  const toggleSidebarCompany = () => {
+    setSidebarVisibleCustomer(!isSidebarVisibleCustomer);
+  };
+
+
   
   return (
     <>
@@ -300,11 +342,159 @@ const SESSION_ID = localStorage.getItem("Session_Id")
             onClick={() => onExportClick()}>Export to Excel</button>
           </div>
         </div>
+
+        {/*  companyList Sidebar Toggle Button */}
+        <button
+                id="viewHideButton"
+                onClick={toggleSidebarCompany}
+                title="Hide & Show Columns"
+                style={{
+                  position: "absolute",
+
+                  right: isSidebarVisibleCustomer ? "200px" : "10px",
+                  zIndex: 1,
+                }}
+              >
+                {isSidebarVisibleCustomer ? (
+                  <i class="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
+                ) : (
+                  <i class="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
+                )}
+              </button>
+
+              {/* companyList Sidebar */}
+              <div
+                style={{
+                  width: isSidebarVisibleCustomer ? "170px" : "0",
+                  transition: "width 0.3s ease",
+                  overflow: "hidden",
+                  float: "right",
+                  padding: isSidebarVisibleCustomer ? "20px" : "0",
+                  borderLeft: isSidebarVisibleCustomer ? "1px solid #ccc" : "none",
+                  backgroundColor: "#000000",
+                  color: "white",
+                  position: "relative",
+                }}
+              >
+                {isSidebarVisibleCustomer && (
+                  <>
+                    <h3>Show/Hide Columns</h3>
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.id}
+                        onChange={() => handleCheckboxChangeCompany("id")}
+                      />
+                      Company ID
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.name}
+                        onChange={() => handleCheckboxChangeCompany("name")}
+                      />
+                      Company Name
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.customer_name}
+                        onChange={() => handleCheckboxChangeCompany("customer_name")}
+                      />
+                      Customer Name
+                    </label>
+                    
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.gst_no}
+                        onChange={() => handleCheckboxChangeCompany("gst_no")}
+                      />
+                      Gst Number
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.industry}
+                        onChange={() => handleCheckboxChangeCompany("industry")}
+                      />
+                      Industry
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.created_at}
+                        onChange={() =>
+                          handleCheckboxChangeCompany("created_at")
+                        }
+                      />
+                      Create Date
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.payment_alert_date}
+                        onChange={() => handleCheckboxChangeCompany("payment_alert_date")}
+                      />
+                      Payment A.Date
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.freeze_date}
+                        onChange={() =>
+                          handleCheckboxChangeCompany("freeze_date")
+                        }
+                      />
+                      Freeze Date
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.terminate_date}
+                        onChange={() =>
+                          handleCheckboxChangeCompany("terminate_date")
+                        }
+                      />
+                     Terminate Date
+                    </label>
+                    <br />
+                    <label>
+                      <input
+                        className="mr-2"
+                        type="checkbox"
+                        checked={columnsVisibilityCompany.orderbook_enabled}
+                        onChange={() =>
+                          handleCheckboxChangeCompany("orderbook_enabled")
+                        }
+                      />
+                     OrderBook
+                    </label>
+                  </>
+                )}
+              </div>
         
        
         <AgGridReact
           rowData={rowData}
-          columnDefs={columnDefs}
+          columnDefs={visibleColumnsCompany}
           rowSelection="multiple"
           pagination={true}
           rowClassRules={rowClassRules}
