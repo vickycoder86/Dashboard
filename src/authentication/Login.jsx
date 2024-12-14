@@ -47,7 +47,10 @@ const Login = () => {
       );
       localStorage.setItem("Session_Id", response.data.session_id);
 
-      toast.success("Login successful!", { position: "top-center", autoClose: 700 });
+      toast.success("Login successful!", {
+        position: "top-center",
+        autoClose: 700,
+      });
       setTimeout(() => navigate("/Home"), 800);
     } catch (error) {
       console.error("Login Error:", error);
@@ -58,33 +61,48 @@ const Login = () => {
   return (
     <>
       <ToastContainer
-      position="top-center"
-      autoClose={900}
-      hideProgressBar={false}
-      newestOnTop={false}
-      closeOnClick
-      rtl={false}
-      pauseOnFocusLoss
-      draggable
-      pauseOnHover
-      theme="dark" />
+        position="top-center"
+        autoClose={900}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
 
       <form onSubmit={handleLogin}>
         <div className="flex justify-center min-h-screen p-6 sm:p-16">
           <div className="flex flex-col items-center max-w-md w-full rounded-md p-6 sm:p-10">
-            <img src={logo} className="w-[250px] sm:w-[350px] h-auto" alt="Logo" />
+            <img
+              src={logo}
+              className="w-[250px] sm:w-[350px] h-auto"
+              alt="Logo"
+            />
             <h1 className="text-[18px] sm:text-[20px] text-gray-700 font-semibold text-center mt-4">
               Welcome back
             </h1>
             <p className="text-gray-500 text-[14px] sm:text-[16px] font-semibold text-center mt-2">
               Continue with your email and password
             </p>
-            <Box sx={{ "& .MuiTextField-root": { m: 1, width: "42ch", marginTop: "25px" } }}>
+            <Box
+              sx={{
+                "& .MuiTextField-root": {
+                  m: 1,
+                  width: "42ch",
+                  marginTop: "25px",
+                },
+              }}
+            >
               <TextField
                 id="outlined-required"
                 label="Email &nbsp;"
                 inputRef={email}
-                InputLabelProps={{ sx: { fontSize: "17px", fontWeight: "bold" } }}
+                InputLabelProps={{
+                  sx: { fontSize: "17px", fontWeight: "bold" },
+                }}
                 InputProps={{ sx: { fontSize: "16px" } }}
               />
               <div className="flex">
@@ -93,9 +111,22 @@ const Login = () => {
                   label="Password &nbsp;"
                   type={visible ? "text" : "password"}
                   inputRef={password}
-                  InputLabelProps={{ sx: { fontSize: "17px", fontWeight: "bold" } }}
+                  InputLabelProps={{
+                    sx: { fontSize: "17px", fontWeight: "bold" },
+                  }}
                   InputProps={{ sx: { fontSize: "16px" } }}
                 />
+                <div
+                  className="pt-8"
+                  onClick={() => setVisible(!visible)}
+                  style={{ cursor: "pointer" }}
+                >
+                  {visible ? (
+                    <i className="bi bi-eye-fill"></i>
+                  ) : (
+                    <i className="bi bi-eye-slash-fill"></i>
+                  )}
+                </div>
               </div>
             </Box>
             <button
