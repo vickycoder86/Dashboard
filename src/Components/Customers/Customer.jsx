@@ -80,7 +80,7 @@ const Customer = () => {
         navigate(-1);
       }, 800);
     } catch (error) {
-      console.error("Data Update Error:", error);
+      // console.error("Data Update Error:", error);
       toast.error("Data not Updated. Please try again.");
     }
   };
