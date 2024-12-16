@@ -51,13 +51,14 @@ const Home = () => {
             <span
               className="text-[15px] ml-4 font-bold  text-red-500 hover:text-red-600"
               style={{fontSize: "20px"}}
+              title="Logout"
               onClick={logout}
             >
               Logout
             </span>
           </div>
-          <i className="bi bi-bell-fill block text-[24px]" style={{color: "#c7c3c3"}}></i>
-          <button style={{backgroundColor: "#bbe7fc", color: "#1c1b75" ,fontSize: "22px" ,fontWeight: "bold", height: "45px", width: "45px",borderRadius: "50%", display: "inline-block" , boxShadow: "1px 1px 1px 1px #E6E6E6"}}>
+          <i className="bi bi-bell-fill block text-[24px]" style={{color: "#c7c3c3"}} title="Alert"></i>
+          <button style={{backgroundColor: "#bbe7fc", color: "#1c1b75" ,fontSize: "22px" ,fontWeight: "bold", height: "45px", width: "45px",borderRadius: "50%", display: "inline-block" , boxShadow: "1px 1px 1px 1px #E6E6E6"}} title={userName}>
             {userName.charAt(0).toUpperCase()}
           </button>
         </div>
