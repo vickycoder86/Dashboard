@@ -544,6 +544,7 @@ function CustomersList(props) {
           rowClassRules={rowClassRules}
           onGridReady={onGridReady}
           enableBrowserTooltips={true}
+          enableCellTextSelection={true}
           
         />
       </div>

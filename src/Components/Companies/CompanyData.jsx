@@ -40,7 +40,7 @@ const CompanyData = () => {
     orderbook_enabled: orderbookStatus,
   };
 
-  //created a function to uddate Customer data
+  //created a function to update Customer data
   const handleUpdateCompany = async (e) => {
     e.preventDefault();
 

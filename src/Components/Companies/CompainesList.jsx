@@ -500,6 +500,7 @@ const SESSION_ID = localStorage.getItem("Session_Id")
           rowClassRules={rowClassRules}
           onGridReady={onGridReady}
           enableBrowserTooltips={true}
+          enableCellTextSelection={true}
           
           
           
