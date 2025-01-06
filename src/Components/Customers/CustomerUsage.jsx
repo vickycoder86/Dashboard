@@ -49,7 +49,7 @@ const CustomerUsage = () => {
       setUsageData(response.data); // Set the data in state
       // console.log("Customer usage data:", response.data);
     } catch (error) {
-      console.error("Error fetching customer usage data:", error);
+      // console.error("Error fetching customer usage data:", error);
     }
   };
 
@@ -169,7 +169,7 @@ const CustomerUsage = () => {
       </div>
 
       <div className="text-center mt-4">
-      <i class="fa-solid fa-arrow-left" style={{color: "red"}}></i>
+      <i className="fa-solid fa-arrow-left" style={{color: "red"}}></i>
         <button
           className="inline-flex w-full sm:w-[200px] items-center justify-center font-sans font-semibold tracking-wide py-2 mt-4 text-white bg-stone-800 hover:bg-stone-700 rounded-lg h-[50px]"
           onClick={handleClose}

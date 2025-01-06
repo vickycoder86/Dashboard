@@ -520,9 +520,9 @@ const Customerinfo = ({ closePopup, isopen }) => {
                 }}
               >
                 {isSidebarVisibleCompany ? (
-                  <i class="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
+                  <i className="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
                 ) : (
-                  <i class="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
+                  <i className="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
                 )}
               </button>
 
@@ -677,9 +677,9 @@ const Customerinfo = ({ closePopup, isopen }) => {
                 }}
               >
                 {isSidebarVisibleUsers ? (
-                  <i class="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
+                  <i className="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
                 ) : (
-                  <i class="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
+                  <i className="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
                 )}
               </button>
 

@@ -402,9 +402,9 @@ function CustomersList(props) {
                 }}
               >
                 {isSidebarVisibleCustomer ? (
-                  <i class="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
+                  <i className="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
                 ) : (
-                  <i class="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
+                  <i className="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
                 )}
               </button>
 
@@ -539,7 +539,7 @@ function CustomersList(props) {
         <AgGridReact
           rowData={rowData}
           columnDefs={visibleColumnsCompany}
-          rowSelection="multiple"
+          rowSelection={"multiple"}
           pagination={true}
           rowClassRules={rowClassRules}
           onGridReady={onGridReady}

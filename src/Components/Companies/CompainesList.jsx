@@ -51,7 +51,7 @@ const SESSION_ID = localStorage.getItem("Session_Id")
       // console.log(response.data)
       
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -145,7 +145,7 @@ const SESSION_ID = localStorage.getItem("Session_Id")
     },
     {
       field: "gst_no",
-      headerName: "Gst Number",
+      headerName: "GST Number",
       filter: true,
       floatingFilter: true,
       // flex: 4,
@@ -356,9 +356,9 @@ const SESSION_ID = localStorage.getItem("Session_Id")
                 }}
               >
                 {isSidebarVisibleCustomer ? (
-                  <i class="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
+                  <i className="bi bi-arrow-right-circle-fill text-[#00A0E3]"></i>
                 ) : (
-                  <i class="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
+                  <i className="bi bi-layout-sidebar-inset-reverse   text-[#00A0E3]"></i>
                 )}
               </button>
 
