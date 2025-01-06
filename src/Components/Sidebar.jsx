@@ -53,9 +53,9 @@ const SideBar = () => {
         }`}
       >
         <div className="p-2.5 mt-1 flex items-center">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" onClick={viewHome} className="cursor-pointer"/>
           <i
-            className="bi bi-x ml-12 cursor-pointer lg:hidden"
+            className="bi bi-x ml-12 cursor-pointer lg:hidden "
             onClick={open}
           ></i>
         </div>
@@ -78,7 +78,7 @@ const SideBar = () => {
         </div>
 
         <div
-          className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-stone-400"
+          className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-stone-500"
           onClick={viewCompainesList}
         >
           <i className="bi bi-building-fill text-white"></i>
