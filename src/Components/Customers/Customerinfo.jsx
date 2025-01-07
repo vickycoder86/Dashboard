@@ -375,7 +375,7 @@ const Customerinfo = ({ closePopup, isopen }) => {
       <div className="mt-4 mb-5">
           <SideBar />
 
-          <div className="w-full max-w-sm h-[290px]  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ml-[240px]">
+          <div className="w-full max-w-sm h-[290px]  bg-white border border-gray-200 rounded-lg shadow-xl dark:border-gray-700 ml-[240px]">
             <div className="flex justify-end px-4 pt-4">
               <div
                 id="dropdown"
